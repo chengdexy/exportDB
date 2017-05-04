@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOpen = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowConfigFile = new System.Windows.Forms.Button();
             this.chkConfig = new System.Windows.Forms.CheckBox();
@@ -47,18 +46,16 @@
             this.chkBackup = new System.Windows.Forms.CheckBox();
             this.chkStopOther = new System.Windows.Forms.CheckBox();
             this.ofdMain = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.chkReadyImport = new System.Windows.Forms.CheckBox();
+            this.lstImportResult = new System.Windows.Forms.ListBox();
+            this.lblAuthorID = new System.Windows.Forms.Label();
+            this.btnGetAuthorID = new System.Windows.Forms.Button();
+            this.chkAuthorID = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(884, 647);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 0;
-            this.btnOpen.Text = "Open...";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // groupBox1
             // 
@@ -128,6 +125,7 @@
             this.btnExport.TabIndex = 12;
             this.btnExport.Text = "立即导出";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // chkExport
             // 
@@ -249,25 +247,102 @@
             this.chkStopOther.UseVisualStyleBackColor = true;
             this.chkStopOther.CheckedChanged += new System.EventHandler(this.chkStopOther_CheckedChanged);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnImport);
+            this.groupBox2.Controls.Add(this.chkReadyImport);
+            this.groupBox2.Controls.Add(this.lstImportResult);
+            this.groupBox2.Controls.Add(this.lblAuthorID);
+            this.groupBox2.Controls.Add(this.btnGetAuthorID);
+            this.groupBox2.Controls.Add(this.chkAuthorID);
+            this.groupBox2.Enabled = false;
+            this.groupBox2.Location = new System.Drawing.Point(12, 334);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(982, 377);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "导入前必尽事宜";
+            // 
+            // btnImport
+            // 
+            this.btnImport.Enabled = false;
+            this.btnImport.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnImport.Location = new System.Drawing.Point(34, 108);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(81, 34);
+            this.btnImport.TabIndex = 13;
+            this.btnImport.Text = "开始导入";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // chkReadyImport
+            // 
+            this.chkReadyImport.AutoSize = true;
+            this.chkReadyImport.Location = new System.Drawing.Point(6, 83);
+            this.chkReadyImport.Name = "chkReadyImport";
+            this.chkReadyImport.Size = new System.Drawing.Size(210, 19);
+            this.chkReadyImport.TabIndex = 4;
+            this.chkReadyImport.Text = "准备就绪, 将数据导入新库";
+            this.chkReadyImport.UseVisualStyleBackColor = true;
+            this.chkReadyImport.CheckedChanged += new System.EventHandler(this.chkReadyImport_CheckedChanged);
+            // 
+            // lstImportResult
+            // 
+            this.lstImportResult.FormattingEnabled = true;
+            this.lstImportResult.HorizontalScrollbar = true;
+            this.lstImportResult.ItemHeight = 15;
+            this.lstImportResult.Location = new System.Drawing.Point(368, 24);
+            this.lstImportResult.Name = "lstImportResult";
+            this.lstImportResult.Size = new System.Drawing.Size(608, 349);
+            this.lstImportResult.TabIndex = 3;
+            // 
+            // lblAuthorID
+            // 
+            this.lblAuthorID.AutoSize = true;
+            this.lblAuthorID.Location = new System.Drawing.Point(220, 58);
+            this.lblAuthorID.Name = "lblAuthorID";
+            this.lblAuthorID.Size = new System.Drawing.Size(0, 15);
+            this.lblAuthorID.TabIndex = 2;
+            // 
+            // btnGetAuthorID
+            // 
+            this.btnGetAuthorID.Location = new System.Drawing.Point(34, 51);
+            this.btnGetAuthorID.Name = "btnGetAuthorID";
+            this.btnGetAuthorID.Size = new System.Drawing.Size(179, 23);
+            this.btnGetAuthorID.TabIndex = 1;
+            this.btnGetAuthorID.Text = "获取专用账户AuthorID";
+            this.btnGetAuthorID.UseVisualStyleBackColor = true;
+            this.btnGetAuthorID.Click += new System.EventHandler(this.btnGetAuthorID_Click);
+            // 
+            // chkAuthorID
+            // 
+            this.chkAuthorID.AutoSize = true;
+            this.chkAuthorID.Location = new System.Drawing.Point(7, 25);
+            this.chkAuthorID.Name = "chkAuthorID";
+            this.chkAuthorID.Size = new System.Drawing.Size(284, 19);
+            this.chkAuthorID.TabIndex = 0;
+            this.chkAuthorID.Text = "我已在新站中创建导入专用管理员账户";
+            this.chkAuthorID.UseVisualStyleBackColor = true;
+            this.chkAuthorID.CheckedChanged += new System.EventHandler(this.chkAuthorID_CheckedChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 723);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnOpen);
             this.Name = "frmMain";
             this.Text = "数据同步";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lstExportResult;
         private System.Windows.Forms.Button btnExport;
@@ -286,6 +361,13 @@
         private System.Windows.Forms.Button btnShowConfigFile;
         private System.Windows.Forms.CheckBox chkConfig;
         private System.Windows.Forms.OpenFileDialog ofdMain;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnGetAuthorID;
+        private System.Windows.Forms.CheckBox chkAuthorID;
+        private System.Windows.Forms.Label lblAuthorID;
+        private System.Windows.Forms.ListBox lstImportResult;
+        private System.Windows.Forms.CheckBox chkReadyImport;
+        private System.Windows.Forms.Button btnImport;
     }
 }
 

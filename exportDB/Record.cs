@@ -40,7 +40,6 @@ namespace exportDB
             Lanmu = 10;
             Views = 0;
             Shanchu = 0;
-            Authorid = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["authorId"]);
         }
     }
 }
